@@ -18,7 +18,9 @@ class SpriteSheet {
     public: SpriteSheet(const char filename[], const unsigned int columnLength, const unsigned rowLenght);
     public: ~SpriteSheet(void);
 
-    public: void selectSprite(const unsigned int x, const unsigned int y);
+    public: void selectColumn(const unsigned int column);
+    public: void selectRow(const unsigned int row);
+    public: void selectSprite(const unsigned int column, const unsigned int row);
 
     public: unsigned int incrementCurrentColumn(void);
     public: unsigned int incrementCurrentRow(void);

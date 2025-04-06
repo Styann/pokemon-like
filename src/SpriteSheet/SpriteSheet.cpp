@@ -26,9 +26,17 @@ unsigned int SpriteSheet::incrementCurrentRow(void) {
     return this->currentRow;
 }
 
-void SpriteSheet::selectSprite(const unsigned int x, const unsigned int y) {
-    this->currentColumn = x;
-    this->currentRow = y;
+void SpriteSheet::selectColumn(const unsigned int column) {
+    this->currentColumn = column;
+}
+
+void SpriteSheet::selectRow(const unsigned int row) {
+    this->currentRow = row;
+}
+
+void SpriteSheet::selectSprite(const unsigned int column, const unsigned int row) {
+    this->selectColumn(column);
+    this->selectRow(row);
 }
 
 void SpriteSheet::drawSprite(Vector2 *const position){

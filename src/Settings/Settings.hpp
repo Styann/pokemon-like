@@ -14,6 +14,6 @@ namespace KeyboardInput {
     extern KeyboardKey moveRight;
     extern KeyboardKey moveDown;
     extern KeyboardKey moveLeft;
-}
+};
 
 #endif
