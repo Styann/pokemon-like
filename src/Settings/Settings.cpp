@@ -1,9 +1,9 @@
 #include "Settings.hpp"
 
 namespace VideoSettings {
-    int width = 1920;
-    int height = 1080;
-    int targetFPS = 120;
+    unsigned int width = 480;
+    unsigned int height = 480;
+    unsigned int targetFPS = 120;
 };
 
 namespace KeyboardInput {

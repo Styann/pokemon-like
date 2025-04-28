@@ -13,6 +13,10 @@ add_executable(pokemon_like
     ./src/Player/Player.cpp
     ./src/Settings/Settings.cpp
     ./src/SpriteSheet/SpriteSheet.cpp
+    ./src/Env/Env.cpp
+    ./src/Pokemon/Pokemon.cpp
+    ./src/Direction/Direction.hpp
+    ./src/GridMap/GridMap.cpp
 )
 
 # target_sources(pokemon_like PUBLIC

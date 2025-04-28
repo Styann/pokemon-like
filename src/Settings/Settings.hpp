@@ -4,9 +4,9 @@
 #include "raylib.h"
 
 namespace VideoSettings {
-    extern int width;
-    extern int height;
-    extern int targetFPS;
+    extern unsigned int width;
+    extern unsigned int height;
+    extern unsigned int targetFPS;
 };
 
 namespace KeyboardInput {

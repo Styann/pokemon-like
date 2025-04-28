@@ -39,7 +39,7 @@ void SpriteSheet::selectSprite(const unsigned int column, const unsigned int row
     this->selectRow(row);
 }
 
-void SpriteSheet::drawSprite(Vector2 *const position){
+void SpriteSheet::drawSprite(const Vector2 *const position){
     // Source rectangle (part of the texture to use for drawing)
     Rectangle sourceRec = {
         .x = (float)this->spriteWidth * this->currentColumn,

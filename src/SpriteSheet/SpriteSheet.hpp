@@ -25,7 +25,7 @@ class SpriteSheet {
     public: unsigned int incrementCurrentColumn(void);
     public: unsigned int incrementCurrentRow(void);
 
-    public: void drawSprite(Vector2 *const position);
+    public: void drawSprite(const Vector2 *const position);
 };
 
 #endif
