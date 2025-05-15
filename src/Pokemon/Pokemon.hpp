@@ -3,21 +3,18 @@
 
 #include "raylib.h"
 
+#include "../Movable/Movable.hpp"
 #include "../SpriteSheet/SpriteSheet.hpp"
 #include "../Player/Player.hpp"
 
-class Pokemon {
-    public: Vector2 position;
-    public: SpriteSheet *spriteSheet;
-
-    public: Pokemon(void);
-    public: ~Pokemon(void);
+class Pokemon : public Movable {
+    // public: Pokemon(const char *spriteSheetPath, GridMap *gridMap, GridMapVector gridMapPosition, Direction direction);
 
     // private: bool isFacingPlayer(const Player *const player);
 
     // public: void followPlayer(const Player *const player);
 
-    public: void draw(void);
+    // public: void update
 };
 
 #endif

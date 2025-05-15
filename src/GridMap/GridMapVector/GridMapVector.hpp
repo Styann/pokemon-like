@@ -1,9 +1,9 @@
-#ifndef GRIDMAPVECTOR_HPP
-#define GRIDMAPVECTOR_HPP
+#ifndef GRIDMAP_VECTOR_HPP
+#define GRIDMAP_VECTOR_HPP
 
 struct GridMapVector {
-    unsigned int x;
-    unsigned int y;
+    int x;
+    int y;
 };
 
 #endif

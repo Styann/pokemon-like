@@ -2,46 +2,68 @@
 #include <iostream>
 
 GridMap::GridMap(void) {
-
+    this->grid = std::vector<std::vector<GridMapObject *>>(15, std::vector<GridMapObject *>(15, nullptr));
 }
 
-bool GridMap::isColliding(unsigned int x, unsigned int y, Direction direction) {
-    unsigned int yy = y;
-    unsigned int xx = x;
+unsigned int GridMap::width(void) {
+    return this->grid.size();
+}
+
+unsigned int GridMap::height(void) {
+    return this->grid[0].size();
+}
+
+void GridMap::initObjectPosition(GridMapObject &object) {
+    if (this->grid[object.gridMapPosition.y][object.gridMapPosition.x]) {
+        throw "GridMap::initObjectPosition -> cell is already busy.";
+    }
+    else {
+        this->grid[object.gridMapPosition.y][object.gridMapPosition.x] = &object;
+    }
+}
+
+void GridMap::updateObjectPosition(GridMapObject &object, Direction direction) {
+    GridMapVector targetPosition = object.gridMapPosition;
 
     switch (direction) {
         case Direction::UP:
-            if (yy > 0) {
-                yy--;
-            }
-            else {
-                return true;
-            }
+            if (targetPosition.y > 0) targetPosition.y--;
             break;
         case Direction::RIGHT:
-            if (xx < 4) {
-                xx++;
-            }
-            else {
-                return true;
-            }
+            if (targetPosition.x < this->width()) targetPosition.x++;
             break;
         case Direction::DOWN:
-            if (yy < 4) {
-                yy++;
-            }
-            else {
-                return true;
-            }
+            if (targetPosition.y < this->height()) targetPosition.y++;
             break;
         case Direction::LEFT:
-            if (xx > 0) {
-                xx--;
-            }
-            else {
-                return true;
-            }
+            if (targetPosition.x > 0) targetPosition.x--;
+            break;
     }
 
-    return this->map[yy][xx];
+    if (!this->grid[targetPosition.y][targetPosition.x]) {
+        this->grid[object.gridMapPosition.y][object.gridMapPosition.x] = nullptr;
+        this->grid[targetPosition.y][targetPosition.x] = &object;
+        object.gridMapPosition = targetPosition;
+    }
+}
+
+bool GridMap::isColliding(GridMapVector &position, Direction direction) {
+    GridMapVector positionCopy = position;
+
+    switch (direction) {
+        case Direction::UP:
+            if (positionCopy.y > 0) positionCopy.y--;
+            break;
+        case Direction::RIGHT:
+            if (positionCopy.x < this->width()) positionCopy.x++;
+            break;
+        case Direction::DOWN:
+            if (positionCopy.y < this->height()) positionCopy.y++;
+            break;
+        case Direction::LEFT:
+            if (positionCopy.x > 0) positionCopy.x--;
+            break;
+    }
+
+    return this->grid[positionCopy.y][positionCopy.x];
 }

@@ -5,15 +5,8 @@
 #include "../Settings/Settings.hpp"
 #include "../Env/Env.hpp"
 
-Pokemon::Pokemon(void) {
-    this->spriteSheet = new SpriteSheet((Env::resourcesPath / "pikachu.png").c_str(), 4, 4);
-    this->position = (Vector2){ VideoSettings::width / 2.0f - 32.0f, VideoSettings::height / 2.0f };
-    // this->direction = Direction::RIGHT;
-}
-
-Pokemon::~Pokemon(void) {
-    delete this->spriteSheet;
-}
+// Pokemon::Pokemon(const char *spriteSheetPath, GridMap *gridMap, GridMapVector gridMapPosition, Direction direction) : Movable(spriteSheetPath, gridMap, gridMapPosition, direction) {
+// }
 
 // bool Pokemon::isFacingPlayer(const Player *const player) {
     // if (this->position.x == player->position.x) {
@@ -39,11 +32,3 @@ Pokemon::~Pokemon(void) {
 
 //     return false;
 // }
-
-// void Pokemon::followPlayer(const Player *const player) {
-
-// }
-
-void Pokemon::draw(void) {
-    this->spriteSheet->drawSprite(&this->position);
-}

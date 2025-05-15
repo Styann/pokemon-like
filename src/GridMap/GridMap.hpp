@@ -1,20 +1,23 @@
 #ifndef GRIDMAP_HPP
 #define GRIDMAP_HPP
 
+#include <vector>
 #include "../Direction/Direction.hpp"
+#include "../GridMap/GridMapVector/GridMapVector.hpp"
+#include "../GridMap/GridMapObject/GridMapObject.hpp"
 
 class GridMap {
-    private: bool map[5][5] = {
-        { 1, 1, 1, 1, 1 },
-        { 1, 0, 0, 0, 1 },
-        { 1, 0, 0, 0, 1 },
-        { 1, 0, 0, 0, 1 },
-        { 1, 1, 1, 1, 1 }
-    };
+    public: std::vector<std::vector<GridMapObject *>> grid;
 
     public: GridMap(void);
 
-    public: bool isColliding(unsigned int x, unsigned int y, Direction direction);
+    private: unsigned int width(void);
+    private: unsigned int height(void);
+
+    public: void initObjectPosition(GridMapObject &object);
+    public: void updateObjectPosition(GridMapObject &object, Direction direction);
+
+    public: bool isColliding(GridMapVector &position, Direction direction);
 };
 
 #endif
